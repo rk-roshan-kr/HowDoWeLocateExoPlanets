@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finding Exoplanets: The Movie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+
+    <!-- Three.js r146 -->
+    <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- Loading / Error Overlay -->
+    <div id="loader">
+        <div id="loader-text">INITIALIZING SYSTEMS...</div>
+        <div id="error-log"></div>
+    </div>
+
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Scene 1: The Scale (Top View - Wide) -->
+    <section class="step" id="step-scale">
+        <div class="content-block center">
+            <h1>The Scale</h1>
+            <p>Space is vast. Finding a small rocky planet hiding in the glare of its star is like spotting a firefly
+                next to a lighthouse.</p>
+            <p class="instruction">Scroll to Begin Journey</p>
+        </div>
+    </section>
+
+    <!-- Scene 2: The Alignment (Ecliptic View) -->
+    <section class="step" id="step-alignment">
+        <div class="content-block left">
+            <h2>The Alignment</h2>
+            <p>But sometimes, geometry favors us. If we are lucky, the planet's orbit aligns perfectly with our line of
+                sight.</p>
+        </div>
+    </section>
+
+    <!-- Scene 3: The Shadow (Transit Close-up) -->
+    <section class="step" id="step-shadow">
+        <div class="content-block right">
+            <h2>The Shadow</h2>
+            <p>As it crosses, it blocks a tiny fraction of the light. A mini-eclipse.</p>
+        </div>
+    </section>
+
+    <!-- Scene 4: The Signal (Light Journey) -->
+    <section class="step" id="step-signal">
+        <div class="content-block center">
+            <h2>The Signal</h2>
+            <p>These photons travel hundreds of light-years across the galaxy to reach our telescopes.</p>
+        </div>
+    </section>
+
+    <!-- Scene 5: The Discovery (Data) -->
+    <section class="step" id="step-discovery">
+        <div class="dashboard-overlay">
+            <div class="scientist-view">
+                <div class="scientist-avatar">🧑‍🔬</div>
+                <div class="terminal">
+                    <div class="line">RECEIVING DATA FLOW...</div>
+                    <div class="line">STAR: KIC-8462852</div>
+                    <div class="line">FLUX DETECTED: -0.01%</div>
+                    <div class="line status">ANALYZING PERIODICITY...</div>
+                </div>
+            </div>
+
+            <div class="hud-container">
+                <div class="hud-header">
+                    <span>TARGET: KEPLER-186f</span>
+                    <span class="live-indicator">CONFIRMED</span>
+                </div>
+
+                <div class="graph-container">
+                    <svg class="light-curve-graph" viewBox="0 0 800 200" preserveAspectRatio="none">
+                        <line x1="0" y1="50" x2="800" y2="50" class="grid" /> <!-- Baseline -->
+                        <line x1="0" y1="150" x2="800" y2="150" class="grid" /> <!-- Lower bound -->
+                        <path id="curve-path" d="M0,50 L800,50" class="curve" />
+                    </svg>
+                </div>
+
+                <div class="hud-footer">
+                    <div class="metric">
+                        <span class="label">ORBITAL PERIOD</span>
+                        <span class="value">129.9 DAYS</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">RADIUS</span>
+                        <span class="value">1.11 x EARTH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
